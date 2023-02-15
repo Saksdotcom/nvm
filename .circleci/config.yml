@@ -25,30 +25,30 @@ jobs:
       # - run:
       #     name: Run tests
       #     command: npm test
-      - run:
-          name: Install SonarScanner
-          command: |
-            wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
-            tar xzf apache-maven-3.5.4-bin.tar.gz
-            rm apache-maven-3.5.4-bin.tar.gz
-            ln -s apache-maven-3.5.4 maven
-            wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
-            unzip sonar-scanner-cli-4.5.0.2216-linux.zip
-            rm sonar-scanner-cli-4.5.0.2216-linux.zip
-            export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
-            # cd /home/circleci/project/
-            cd /home/circleci/project/
-            ls -lrt /home/circleci/project           
-            mvn clean install
-            mvn clean package
-            # mvn install -DskipTests
-            mvn test
-            mvn checkstyle:checkstyle
-            # curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
-            ls -lrt /home/circleci/project/target/
-            # mvn install -DskipTests
-            # mvn sonar:sonar
-            # ls -lrt /home/circleci/project/
+      # - run:
+      #     name: Install SonarScanner
+      #     command: |
+      #       wget http://www-eu.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
+      #       tar xzf apache-maven-3.5.4-bin.tar.gz
+      #       rm apache-maven-3.5.4-bin.tar.gz
+      #       ln -s apache-maven-3.5.4 maven
+      #       wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.5.0.2216-linux.zip
+      #       unzip sonar-scanner-cli-4.5.0.2216-linux.zip
+      #       rm sonar-scanner-cli-4.5.0.2216-linux.zip
+      #       export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
+      #       # cd /home/circleci/project/
+      #       cd /home/circleci/project/
+      #       ls -lrt /home/circleci/project           
+      #       mvn clean install
+      #       mvn clean package
+      #       # mvn install -DskipTests
+      #       mvn test
+      #       mvn checkstyle:checkstyle
+      #       # curl https://sonarcloud.io/api/qualitygates/project_status?projectKey=$Project >result.json
+      #       ls -lrt /home/circleci/project/target/
+      #       # mvn install -DskipTests
+      #       # mvn sonar:sonar
+      #       # ls -lrt /home/circleci/project/
       - run:
           name: Analyze with SonarCloud
           command: |
